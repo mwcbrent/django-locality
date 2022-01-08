@@ -1,8 +1,12 @@
 from django.core import serializers
 from django.http import HttpResponse
-from django.utils.encoding import force_text
 from django.utils.functional import Promise
 from django import VERSION
+
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_str as force_text
 
 from locality.models import Country, Territory
 
